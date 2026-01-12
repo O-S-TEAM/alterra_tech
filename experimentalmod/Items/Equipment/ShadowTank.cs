@@ -13,7 +13,7 @@ namespace experimentalmod.Items.Equipment
     public static class ShadowTank
     {
         public static PrefabInfo Info { get; } = PrefabInfo
-            .WithTechType("ShadowTank", "Теневой Баллон", "«».")
+            .WithTechType("ShadowTank", "Теневой Баллон", "Максимальная эффективность.")
             .WithIcon(SpriteManager.Get(TechType.HighCapacityTank));
 
         public static void Register()
@@ -44,7 +44,7 @@ namespace experimentalmod.Items.Equipment
 
 
             customPrefab.SetEquipment(EquipmentType.Tank);
-            customPrefab.SetUnlock(StaticStructures.ServerInfo.TechType, 2);
+            customPrefab.SetUnlock(UnknownMinerales.Info.TechType);
             RegisterEncyclopedia();
             customPrefab.Register();
         }
