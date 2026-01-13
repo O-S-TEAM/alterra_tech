@@ -1,9 +1,9 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using ECCLibrary;
-using experimentalmod.Items;
-using experimentalmod.Items.Equipment;
-using experimentalmod.Items.Minerals;
+using alterratech.Items;
+using alterratech.Items.Equipment;
+using alterratech.Items.Minerals;
 using HarmonyLib;
 using Nautilus.Assets;
 using Nautilus.Handlers;
@@ -11,7 +11,7 @@ using System.IO;
 using System.Reflection;
 using UnityEngine;
 
-namespace experimentalmod
+namespace alterratech
 {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
     [BepInDependency("com.snmodding.nautilus")]

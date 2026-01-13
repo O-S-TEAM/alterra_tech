@@ -5,7 +5,8 @@ using UnityEngine;
 using System.IO;
 using System.Reflection;
 using Nautilus.Utility; 
-namespace experimentalmod.Items
+
+namespace alterratech.Items
 {
     public static class StaticStructures
     {

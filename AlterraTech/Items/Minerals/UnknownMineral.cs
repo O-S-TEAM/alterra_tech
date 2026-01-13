@@ -8,7 +8,7 @@ using System.IO;
 using System.Reflection;
 using UnityEngine;
 
-namespace experimentalmod.Items.Minerals
+namespace alterratech.Items.Minerals
 {
     public static class UnknownMinerales
     {

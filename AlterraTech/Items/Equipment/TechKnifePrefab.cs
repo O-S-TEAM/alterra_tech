@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Reflection;
-using experimentalmod.Items.Minerals;
+using alterratech.Items.Minerals;
 using Nautilus.Assets;
 using Nautilus.Assets.Gadgets;
 using Nautilus.Assets.PrefabTemplates;
@@ -11,7 +11,7 @@ using Nautilus.Utility;
 using Story;
 using UnityEngine;
 
-namespace experimentalmod.Items.Equipment
+namespace alterratech.Items.Equipment
 {
     public static class TechKnifePrefab
     {
