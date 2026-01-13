@@ -4,7 +4,8 @@ using Nautilus.Handlers;
 using UnityEngine;
 using System.IO;
 using System.Reflection;
-using Nautilus.Utility; 
+using Nautilus.Utility;
+using Story;
 
 namespace alterratech.Items
 {
@@ -24,7 +25,7 @@ namespace alterratech.Items
             serverPrefab.Register();
             titanicPrefab.Register();
 
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3Int(0, 10, 0)));
+            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3Int(55, -25, -87)));
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(TitanicInfo.TechType, new Vector3(-1745f, -420f, 0f)));
 
 
