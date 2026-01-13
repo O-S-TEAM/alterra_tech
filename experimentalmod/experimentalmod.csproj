@@ -31,8 +31,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="BepInEx">
+      <HintPath>..\..\..\..\..\..\..\Subnautica\BepInEx\core\BepInEx.dll</HintPath>
+    </Reference>
     <Reference Include="ECCLibrary">
-      <HintPath>..\..\..\..\..\..\Subnautica\BepInEx\plugins\ECCLibrary\ECCLibrary.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Subnautica\BepInEx\plugins\ECCLibrary\ECCLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Nautilus">
+      <HintPath>..\..\..\..\..\..\..\Subnautica\BepInEx\plugins\Nautilus\Nautilus.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
