@@ -61,7 +61,7 @@ namespace alterratech.Items.Equipment
                 new Ingredient(UnknownMinerales.Info.TechType, 2),
                 new Ingredient(TechType.HeatBlade, 1)
             );
-            customPrefab.SetRecipe(recipe).WithFabricatorType(CraftTree.Type.Fabricator);
+            customPrefab.SetRecipe(recipe).WithFabricatorType(CraftTree.Type.Workbench);
 
             // Настройки оборудования
             customPrefab.SetEquipment(EquipmentType.Hand);

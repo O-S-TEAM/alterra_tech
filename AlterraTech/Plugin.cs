@@ -48,11 +48,13 @@ namespace alterratech
         private void InitializePrefabs()
         {
             StaticStructures.Register();
+            Debug.LogError("AlterraTech: Структуры Загружены");
             UnknownMinerales.Register();
             TechKnifePrefab.Register();
             //ShadowRebreather.Register();
             ShadowTank.Register();
             DeepLeviathan.RegisterEntity();
+            Debug.LogError("AlterraTech: DeepLev Загружен");
         }
     }
 }

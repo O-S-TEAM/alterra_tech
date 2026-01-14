@@ -51,7 +51,7 @@ namespace alterratech.Items
                 description
             );
 
-            string serverEncy = "Server";
+            string serverEncy = "ServerKey";
             string serverDescription =
                 "<b>Объект: Автономный серверный узел (Архитектура начала XXI века)</b>\n\n" +
                 "Анализ материалов показывает, что данному устройству более сотни лет. В эпоху квантовых процессоров и нейронных интеграций этот аппарат выглядит как механический динозавр. " +
