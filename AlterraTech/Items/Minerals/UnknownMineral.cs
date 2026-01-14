@@ -20,7 +20,7 @@ namespace alterratech.Items.Minerals
 
             string iconPath = Path.Combine(ModPath, "Assets", "UnknownMineralIcon.png");
 
-            Info = PrefabInfo.WithTechType("UnknownMineral", "Неизвестный Минерал", "Материал неизвестного происхождения. нигде не используется")
+            Info = PrefabInfo.WithTechType("UnknownMineral", "Неизвестный Минерал", "Материал неизвестного происхождения.")
                 .WithIcon(ImageUtils.LoadSpriteFromFile(iconPath));
 
             var customPrefab = new CustomPrefab(Info);
