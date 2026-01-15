@@ -59,6 +59,7 @@ namespace alterratech.Items.Equipment
             var recipe = new RecipeData(
                 new Ingredient(TechType.Uranium, 2),
                 new Ingredient(UnknownMinerales.Info.TechType, 2),
+                new Ingredient(TechType.Diamond, 2),
                 new Ingredient(TechType.HeatBlade, 1)
             );
             customPrefab.SetRecipe(recipe).WithFabricatorType(CraftTree.Type.Workbench);
