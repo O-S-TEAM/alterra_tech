@@ -65,7 +65,7 @@ namespace alterratech.Items.Equipment
 
             // Настройки оборудования
             customPrefab.SetEquipment(EquipmentType.Hand);
-            customPrefab.SetUnlock(TechType.HeatBlade);
+            customPrefab.SetUnlock(ShadowTank.Info.TechType);
 
             // Блок энциклопедии
             RegisterEncyclopedia();
