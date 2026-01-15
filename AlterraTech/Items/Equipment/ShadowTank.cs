@@ -24,30 +24,37 @@ namespace alterratech.Items.Equipment
             clone.ModifyPrefab += obj =>
             {
                 obj.AddComponent<ShadowTankLogic>();
+
                 var oxygen = obj.GetComponent<Oxygen>();
                 if (oxygen != null)
                 {
                     oxygen.oxygenCapacity = 150f;
                 }
+
                 var renderers = obj.GetComponentsInChildren<Renderer>(true);
                 foreach (var r in renderers)
                 {
-                    foreach (var m in r.materials) m.color = new Color(0.02f, 0.02f, 0.02f);
+                    foreach (var m in r.materials)
+                    {
+                        m.color = new Color(0.02f, 0.02f, 0.02f);
+                    }
                 }
             };
 
             customPrefab.SetGameObject(clone);
+
             customPrefab.SetRecipe(new RecipeData(
                 new Ingredient(TechType.HighCapacityTank, 1),
                 new Ingredient(UnknownMinerales.Info.TechType, 2)
             )).WithFabricatorType(CraftTree.Type.Workbench);
 
-
             customPrefab.SetEquipment(EquipmentType.Tank);
-            customPrefab.SetUnlock(UnknownMinerales.Info.TechType);
+
             RegisterEncyclopedia();
+
             customPrefab.Register();
         }
+
         private static void RegisterEncyclopedia()
         {
             LanguageHandler.SetLanguageLine("EncyPath_Tech/Shadow Protocol", "PROJECT SHADOW");
@@ -80,15 +87,8 @@ namespace alterratech.Items.Equipment
 
     public class ShadowTankLogic : MonoBehaviour
     {
-
         void Update()
         {
-            if (Player.main == null || Inventory.main == null) return;
-
-            var tankItem = Inventory.main.equipment.GetItemInSlot("Tank");
-            bool isEquipped = tankItem != null && tankItem.item.GetTechType() == ShadowTank.Info.TechType;
-
-            if (!isEquipped) return;
         }
     }
 }
