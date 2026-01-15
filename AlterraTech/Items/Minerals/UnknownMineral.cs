@@ -42,7 +42,7 @@ namespace alterratech.Items.Minerals
                 }
             };
             var recipe = new RecipeData(
-                new Ingredient(TechType.Uranium, 2),
+                new Ingredient(TechType.Uranium, 1),
                 new Ingredient(TechType.Titanium, 2),
                 new Ingredient(TechType.PrecursorIonCrystal, 1)
             );
