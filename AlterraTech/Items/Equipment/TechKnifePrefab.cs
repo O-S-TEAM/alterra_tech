@@ -119,25 +119,24 @@ namespace alterratech.Items.Equipment
         public ForceMode forceMode = ForceMode.Acceleration;
 
         public override string animToolName { get; } = TechType.HeatBlade.AsString(true);
+    public override void OnToolUseAnim(GUIHand hand)
+    {
+        base.OnToolUseAnim(hand);
 
-        public override void OnToolUseAnim(GUIHand hand)
+        GameObject hitObj = null;
+        Vector3 hitPosition = default;
+        UWE.Utils.TraceFPSTargetPosition(Player.main.gameObject, attackDist, ref hitObj, ref hitPosition);
+        if (!hitObj) return;
+
+        var liveMixin = hitObj.GetComponentInParent<LiveMixin>();
+        if (liveMixin && IsValidTarget(liveMixin))
         {
-            base.OnToolUseAnim(hand);
-
-            GameObject hitObj = null;
-            Vector3 hitPosition = default;
-            UWE.Utils.TraceFPSTargetPosition(Player.main.gameObject, attackDist, ref hitObj, ref hitPosition);
-            if (!hitObj) return;
-
-            var liveMixin = hitObj.GetComponentInParent<LiveMixin>();
-            if (liveMixin && IsValidTarget(liveMixin))
+            var rigidbody = hitObj.GetComponentInParent<Rigidbody>();
+            if (rigidbody)
             {
-                var rigidbody = hitObj.GetComponentInParent<Rigidbody>();
-                if (rigidbody)
-                {
-                    rigidbody.AddForce(MainCamera.camera.transform.forward * hitForce, forceMode);
-                }
+                rigidbody.AddForce(MainCamera.camera.transform.forward * hitForce, forceMode);
             }
         }
     }
+}
 }

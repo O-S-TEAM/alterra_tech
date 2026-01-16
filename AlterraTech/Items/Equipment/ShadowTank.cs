@@ -28,7 +28,7 @@ namespace alterratech.Items.Equipment
                 var oxygen = obj.GetComponent<Oxygen>();
                 if (oxygen != null)
                 {
-                    oxygen.oxygenCapacity = 150f;
+                    oxygen.oxygenCapacity = 160f;
                 }
 
                 var renderers = obj.GetComponentsInChildren<Renderer>(true);
@@ -68,7 +68,7 @@ namespace alterratech.Items.Equipment
                     "<b>Технические характеристики:</b>\n" +
                     "• <b>Объем:</b> Увеличенная емкость за счет молекулярного сжатия газовой смеси.\n" +
                     "• <b>Материалы:</b> <color=#90000f> ERROR: DATA CORRUPTED </color>\n" +
-                    "• <b>Автономность:</b> Обеспечивает +150 единиц кислорода к базовому запасу.\n\n" +
+                    "• <b>Автономность:</b> Обеспечивает +160 единиц кислорода к базовому запасу.\n\n" +
                     "<b>Анализ:</b>\n" +
                     "Устройство превосходит все гражданские аналоги Альтерры по показателям плотности хранения кислорода. " +
                     "Использование в официальных экспедициях запрещено из-за непредсказуемости влияния излучения минерала на состав смеси.\n\n" +

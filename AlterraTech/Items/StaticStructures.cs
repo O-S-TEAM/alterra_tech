@@ -1,11 +1,12 @@
-﻿using Nautilus.Assets;
+﻿using alterratech.Items.Equipment;
+using Nautilus.Assets;
 using Nautilus.Handlers;
-using UnityEngine;
-using System.IO;
-using System.Reflection;
 using Nautilus.Utility;
 using Story;
-using alterratech.Items.Equipment;
+using System.IO;
+using System.Reflection;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using UnityEngine;
 
 namespace alterratech.Items
 {
@@ -30,37 +31,37 @@ namespace alterratech.Items
 
             EncyPda();
 
-            PDAScanner.onAdd += OnArtifactScanned;
+            //PDAScanner.onAdd += OnArtifactScanned;
 
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(TitanicInfo.TechType, new Vector3(-1745f, -420f, 0f)));
 
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(55f, -25f, -87f)));
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(-250f, -100f, -400f)));
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(-650f, -150f, 750f)));
+            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(55f, -27f, -87f)));
+            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(-250f, -61f, -400f)));
+            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(-650f, -192f, 750f)));
 
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(TechType.PrecursorIonCrystal, new Vector3(0, 30, 0)));
         }
 
-        private static void OnArtifactScanned(PDAScanner.Entry entry)
-        {
-            if (entry.techType == ServerInfo.TechType)
-            {
-                scannedServersCount++;
+        //private static void OnArtifactScanned(PDAScanner.Entry entry)
+        //{
+        //    if (entry.techType == ServerInfo.TechType)
+        //    {
+        //        scannedServersCount++;
 
-                if (scannedServersCount < TotalServersRequired)
-                {
-                    ErrorMessage.AddMessage($"Обнаружен узел данных Shadow Protocol ({scannedServersCount}/{TotalServersRequired})");
-                }
-                else if (scannedServersCount == TotalServersRequired)
-                {
-                    ErrorMessage.AddMessage("Архив Shadow Protocol полностью расшифрован! Чертежи Теневого Баллона получены.");
+        //        if (scannedServersCount < TotalServersRequired)
+        //        {
+        //            ErrorMessage.AddMessage($"Обнаружен узел данных Shadow Protocol ({scannedServersCount}/{TotalServersRequired})");
+        //        }
+        //        else if (scannedServersCount == TotalServersRequired)
+        //        {
+        //            ErrorMessage.AddMessage("Архив Shadow Protocol полностью расшифрован! Чертежи Теневого Баллона получены.");
 
-                    KnownTech.Add(ShadowTank.Info.TechType, true);
+        //            KnownTech.Add(ShadowTank.Info.TechType, true);
 
-                    FMODUWE.PlayOneShot(AudioUtils.GetFmodAsset("event:/interface/research_complete"), Player.main.transform.position);
-                }
-            }
-        }
+        //            FMODUWE.PlayOneShot(AudioUtils.GetFmodAsset("event:/interface/research_complete"), Player.main.transform.position);
+        //        }
+        //    }
+        //}
 
         private static void EncyPda()
         {
@@ -91,7 +92,8 @@ namespace alterratech.Items
             PDAHandler.AddEncyclopediaEntry(serverEncy, "Tech/Shadow Protocol", "Старый Сервер", serverDescription);
 
             PDAHandler.AddCustomScannerEntry(TitanicInfo.TechType, 2f, false, titanicEncy);
-            PDAHandler.AddCustomScannerEntry(ServerInfo.TechType, 4f, true, serverEncy);
+            PDAHandler.AddCustomScannerEntry(ServerInfo.TechType, 2f, true, serverEncy);
+            PDAHandler.AddCustomScannerEntry(ServerInfo.TechType, ShadowTank.Info.TechType, true, 3, 2f, true, serverEncy);
         }
 
         private static CustomPrefab CreateBasePrefab(PrefabInfo info, string assetPath)
