@@ -31,8 +31,6 @@ namespace alterratech.Items
 
             EncyPda();
 
-            //PDAScanner.onAdd += OnArtifactScanned;
-
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(TitanicInfo.TechType, new Vector3(-1745f, -420f, 0f)));
 
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(55f, -27f, -87f)));
@@ -41,27 +39,6 @@ namespace alterratech.Items
 
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(TechType.PrecursorIonCrystal, new Vector3(0, 30, 0)));
         }
-
-        //private static void OnArtifactScanned(PDAScanner.Entry entry)
-        //{
-        //    if (entry.techType == ServerInfo.TechType)
-        //    {
-        //        scannedServersCount++;
-
-        //        if (scannedServersCount < TotalServersRequired)
-        //        {
-        //            ErrorMessage.AddMessage($"Обнаружен узел данных Shadow Protocol ({scannedServersCount}/{TotalServersRequired})");
-        //        }
-        //        else if (scannedServersCount == TotalServersRequired)
-        //        {
-        //            ErrorMessage.AddMessage("Архив Shadow Protocol полностью расшифрован! Чертежи Теневого Баллона получены.");
-
-        //            KnownTech.Add(ShadowTank.Info.TechType, true);
-
-        //            FMODUWE.PlayOneShot(AudioUtils.GetFmodAsset("event:/interface/research_complete"), Player.main.transform.position);
-        //        }
-        //    }
-        //}
 
         private static void EncyPda()
         {
