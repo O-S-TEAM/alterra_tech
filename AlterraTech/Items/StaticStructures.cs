@@ -24,8 +24,8 @@ namespace alterratech.Items
 
         public static void Register()
         {
-            var titanicPrefab = CreateBasePrefab(TitanicInfo, "Assets/titanic.prefab");
-            var serverPrefab = CreateBasePrefab(ServerInfo, "Assets/serverV3.prefab");
+            var titanicPrefab = CreateBasePrefab(TitanicInfo, "Assets/Prefabs/titanic.prefab");
+            var serverPrefab = CreateBasePrefab(ServerInfo, "Assets/Prefabs/serverV3.prefab");
 
             serverPrefab.Register();
             titanicPrefab.Register();

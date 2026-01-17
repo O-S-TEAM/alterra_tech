@@ -29,8 +29,8 @@ namespace alterratech
             Logger = base.Logger;
             Harmony.CreateAndPatchAll(Assembly, $"{PluginInfo.PLUGIN_GUID}");
 
-            string bundlePath = Path.Combine(ModPath, "Assets", "assetbundlev2");
-            string bundlev2Path = Path.Combine(ModPath, "Assets", "assetbundledlc");
+            //string bundlePath = Path.Combine(ModPath, "Assets", "assetbundlev2");
+            string bundlePath = Path.Combine(ModPath, "Assets", "assetbundledlc");
 
             if (File.Exists(bundlePath))
             {
@@ -40,15 +40,6 @@ namespace alterratech
             else
             {
                 Logger.LogError($"Файл бандла не найден по пути: {bundlePath}");
-            }
-            if (File.Exists(bundlev2Path))
-            {
-                Bundle = AssetBundle.LoadFromFile(bundlev2Path);
-                Logger.LogInfo("AssetBundleV2 успешно загружен!");
-            }
-            else
-            {
-                Logger.LogError($"Файл бандла не найден по пути: {bundlev2Path}");
             }
             InitializePrefabs();
 
@@ -60,12 +51,12 @@ namespace alterratech
             StaticStructures.Register();
             Debug.LogError("AlterraTech: Структуры Загружены");
             UnknownMinerales.Register();
-            EngineItem.Register();
             TechKnifePrefab.Register();
             //ShadowRebreather.Register();
             ShadowTank.Register();
             DeepLeviathan.RegisterEntity();
             Debug.LogError("AlterraTech: DeepLev Загружен");
+            EngineItem.Register();
         }
     }
 }

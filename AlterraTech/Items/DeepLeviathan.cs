@@ -39,7 +39,7 @@ namespace alterratech.Items
 
         protected override CreatureTemplate CreateTemplate()
         {
-            GameObject model = Plugin.Bundle.LoadAsset<GameObject>("Assets/ShadowFish.prefab");
+            GameObject model = Plugin.Bundle.LoadAsset<GameObject>("Assets/Prefabs/ShadowFish.prefab");
 
             if (model == null)
             {
