@@ -3,6 +3,7 @@ using Nautilus.Assets;
 using Nautilus.Handlers;
 using Nautilus.Utility;
 using Story;
+using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
@@ -30,6 +31,7 @@ namespace alterratech.Items
             titanicPrefab.Register();
 
             EncyPda();
+            Debug.LogError("AlterraTech: PDA записи загружены");
 
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(TitanicInfo.TechType, new Vector3(-1745f, -420f, 0f)));
 
@@ -38,6 +40,7 @@ namespace alterratech.Items
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(-650f, -192f, 750f)));
 
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(TechType.PrecursorIonCrystal, new Vector3(0, 30, 0)));
+            Debug.LogError("AlterraTech: Структуры добавлены в мир");
         }
 
         private static void EncyPda()
