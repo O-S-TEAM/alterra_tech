@@ -1,6 +1,8 @@
-﻿using Nautilus.Assets;
+﻿using alterratech.Items.Equipment;
+using Nautilus.Assets;
 using Nautilus.Assets.Gadgets;
 using Nautilus.Crafting;
+using Nautilus.Handlers;
 using Nautilus.Utility;
 using UnityEngine;
 
@@ -38,14 +40,41 @@ namespace alterratech.Items.TechItems
             });
 
             customPrefab.SetRecipe(new RecipeData(
-                new Ingredient(TechType.TitaniumIngot, 1),
-                new Ingredient(TechType.WiringKit, 1),
-                new Ingredient(TechType.CopperWire, 2)
+                new Ingredient(TechType.PrecursorIonCrystal, 2),
+                new Ingredient(TechType.WiringKit, 2),
+                new Ingredient(TechType.CopperWire, 3)
             )).WithFabricatorType(CraftTree.Type.Fabricator);
 
             customPrefab.SetPdaGroupCategory(TechGroup.Resources, TechCategory.Electronics);
 
             customPrefab.Register();
+
+            RegisterEncyclopedia();
+        }
+
+        private static void RegisterEncyclopedia()
+        {
+            // Используем TechType как ID для энциклопедии, чтобы StoryGoalHandler его подцепил
+            string entryId = "ShadowEngine";
+
+            PDAHandler.AddEncyclopediaEntry(
+                entryId,
+                "Tech/Artifacts",
+                "Теневой Двигатель (Прототип #7600)",
+                "Данный агрегат не числится в официальном реестре Alterra. \n\n" +
+                "**Технический анализ:**\n" +
+                "Устройство представляет собой гибрид термального реактора и ионного ускорителя. " +
+                "Внутренняя архитектура сильно изменена. Поверхностные слои имеют следы ручной пайки и " +
+                "нестандартной калибровки, характерной для команды 'O.S. TEAM'.\n\n" +
+                "**Обнаруженные аномалии:**\n" +
+                "1. Эмиссия: Текстурные датчики фиксируют свечение, не связанное с потреблением энергии.\n" +
+                "2. Температура: Объект остается теплым даже в арктических водах.\n" +
+                "3. Программный код: В прошивку вшит алгоритм 'Shadow Protocol', блокирующий удаленный доступ Alterra.\n\n" +
+                "**ВНИМАНИЕ:** Использование данного двигателя в гражданских постройках может привести к нарушению гарантии и дестабилизации реальности."
+            );
+
+            // Твоя верная строка
+            StoryGoalHandler.RegisterItemGoal(entryId, Story.GoalType.Encyclopedia, Info.TechType);
         }
     }
 }
