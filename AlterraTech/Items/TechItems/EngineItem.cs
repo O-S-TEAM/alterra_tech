@@ -11,7 +11,7 @@ namespace alterratech.Items.TechItems
     public static class EngineItem
     {
         public static PrefabInfo Info { get; } = PrefabInfo
-            .WithTechType("ShadowEngine", "Теневой Двигатель", "Экспериментальный прототип двигателя. Излучает едва заметное тепло.")
+            .WithTechType("Engine", "Теневой Двигатель", "Экспериментальный прототип двигателя. Излучает едва заметное тепло.")
             .WithIcon(Plugin.Bundle.LoadAsset<Sprite>("Assets/Sprite/EngineSp.png"))
             .WithSizeInInventory(new Vector2int(2, 2));
 
@@ -53,17 +53,17 @@ namespace alterratech.Items.TechItems
         private static void RegisterEncyclopedia()
         {
             // Используем TechType как ID для энциклопедии, чтобы StoryGoalHandler его подцепил
-            string entryId = "ShadowEngine";
+            string entryId = "Engine";
 
             PDAHandler.AddEncyclopediaEntry(
                 entryId,
                 "Tech/Artifacts",
-                "Теневой Двигатель (Прототип #7600)",
+                "Двигатель (Прототип #7600)",
                 "Данный агрегат не числится в официальном реестре Alterra. \n\n" +
                 "**Технический анализ:**\n" +
                 "Устройство представляет собой гибрид термального реактора и ионного ускорителя. " +
                 "Внутренняя архитектура сильно изменена. Поверхностные слои имеют следы ручной пайки и " +
-                "нестандартной калибровки, характерной для команды 'O.S. TEAM'.\n\n" +
+                "нестандартной калибровки, характерной для команды 'Альтерра'.\n\n" +
                 "**Обнаруженные аномалии:**\n" +
                 "1. Эмиссия: Текстурные датчики фиксируют свечение, не связанное с потреблением энергии.\n" +
                 "2. Температура: Объект остается теплым даже в арктических водах.\n" +
