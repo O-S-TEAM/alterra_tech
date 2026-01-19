@@ -44,11 +44,9 @@ namespace alterratech.Items.TechItems
                 new Ingredient(TechType.WiringKit, 2),
                 new Ingredient(TechType.CopperWire, 3)
             )).WithFabricatorType(CraftTree.Type.Fabricator);
-
             customPrefab.SetPdaGroupCategory(TechGroup.Resources, TechCategory.Electronics);
-
+            customPrefab.SetUnlock(ShadowTank.Info.TechType);
             customPrefab.Register();
-
             RegisterEncyclopedia();
         }
 

@@ -47,11 +47,8 @@ namespace alterratech.Items.Equipment
                 new Ingredient(TechType.HighCapacityTank, 1),
                 new Ingredient(UnknownMinerales.Info.TechType, 2)
             )).WithFabricatorType(CraftTree.Type.Workbench);
-
             customPrefab.SetEquipment(EquipmentType.Tank);
-
             RegisterEncyclopedia();
-
             customPrefab.Register();
         }
 
