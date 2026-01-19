@@ -34,9 +34,6 @@ namespace alterratech.Structures
             Debug.LogError("AlterraTech: PDA записи загружены");
 
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(TitanicInfo.TechType, new Vector3(-1745f, -420f, 0f)));
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(0f, 0f, 0f)));
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(0f, 0f, 20f)));
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(0f, 0f, 40f)));
             Debug.LogError("AlterraTech: Структуры добавлены в мир");
         }
 
