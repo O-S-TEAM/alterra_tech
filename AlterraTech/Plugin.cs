@@ -1,22 +1,21 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
-using ECCLibrary;
-using alterratech.Items;
 using alterratech.Items.Equipment;
 using alterratech.Items.Minerals;
 using alterratech.Items.TechItems;
+using alterratech.Structures;
 using HarmonyLib;
-using Nautilus.Assets;
-using Nautilus.Handlers;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
+using alterratech.Creatures;
 
 namespace alterratech
 {
     [BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
     [BepInDependency("com.snmodding.nautilus")]
     [BepInDependency("com.lee23.ecclibrary")]
+    [BepInDependency("com.lee23.epicstructureloader")]
     public class Plugin : BaseUnityPlugin
     {
         public new static ManualLogSource Logger { get; private set; }
@@ -29,7 +28,6 @@ namespace alterratech
             Logger = base.Logger;
             Harmony.CreateAndPatchAll(Assembly, $"{PluginInfo.PLUGIN_GUID}");
 
-            //string bundlePath = Path.Combine(ModPath, "Assets", "assetbundlev2");
             string bundlePath = Path.Combine(ModPath, "Assets", "assetbundledlc");
 
             if (File.Exists(bundlePath))
@@ -48,6 +46,7 @@ namespace alterratech
 
         private void InitializePrefabs()
         {
+            StructureLoaders.LoadStructures();
             StaticStructures.Register();
             Debug.LogError("AlterraTech: Структуры Загружены");
             UnknownMinerales.Register();

@@ -37,6 +37,9 @@
     <Reference Include="ECCLibrary">
       <HintPath>..\..\..\..\..\..\..\Subnautica\BepInEx\plugins\ECCLibrary\ECCLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="EpicStructureLoader">
+      <HintPath>..\..\..\..\..\..\..\Subnautica\BepInEx\plugins\EpicStructureLoader\EpicStructureLoader.dll</HintPath>
+    </Reference>
     <Reference Include="Nautilus">
       <HintPath>..\..\..\..\..\..\..\Subnautica\BepInEx\plugins\Nautilus\Nautilus.dll</HintPath>
     </Reference>

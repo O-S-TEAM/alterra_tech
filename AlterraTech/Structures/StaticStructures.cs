@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using UnityEngine;
 
-namespace alterratech.Items
+namespace alterratech.Structures
 {
     public static class StaticStructures
     {
@@ -34,12 +34,9 @@ namespace alterratech.Items
             Debug.LogError("AlterraTech: PDA записи загружены");
 
             CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(TitanicInfo.TechType, new Vector3(-1745f, -420f, 0f)));
-
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(55f, -27f, -87f)));
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(-250f, -61f, -400f)));
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(-650f, -192f, 750f)));
-
-            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(TechType.PrecursorIonCrystal, new Vector3(0, 30, 0)));
+            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(0f, 0f, 0f)));
+            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(0f, 0f, 20f)));
+            CoordinatedSpawnsHandler.RegisterCoordinatedSpawn(new SpawnInfo(ServerInfo.TechType, new Vector3(0f, 0f, 40f)));
             Debug.LogError("AlterraTech: Структуры добавлены в мир");
         }
 
@@ -73,7 +70,6 @@ namespace alterratech.Items
             PDAHandler.AddEncyclopediaEntry(serverEncy, "Tech/Shadow Protocol", "Старый Сервер", serverDescription);
 
             PDAHandler.AddCustomScannerEntry(TitanicInfo.TechType, 2f, false, titanicEncy);
-            PDAHandler.AddCustomScannerEntry(ServerInfo.TechType, 2f, true, serverEncy);
             PDAHandler.AddCustomScannerEntry(ServerInfo.TechType, ShadowTank.Info.TechType, true, 3, 2f, true, serverEncy);
         }
 

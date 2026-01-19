@@ -6,7 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace alterratech.Items
+namespace alterratech.Creatures
 {
     internal class ShadowMeleeAttack : MeleeAttack
     {
