@@ -53,6 +53,8 @@ namespace alterratech.Items.Minerals
                 new LootDistributionData.BiomeData { biome = BiomeType.GrassyPlateaus_CaveFloor, count = 1, probability = 0.5f }
             );
             customPrefab.SetEquipment(EquipmentType.None);
+            customPrefab.SetUnlock(TechType.Knife);
+            EncyPda();
             customPrefab.Register();
         }
         private static void EncyPda()
@@ -70,8 +72,8 @@ namespace alterratech.Items.Minerals
                 "<color=#ffff00ff>ЗАМЕТКА ИИ:</color>\n" +
                 "<i>«Архивы указывают, что синтез такого вещества теоретически возможен, но требует катализатора, который был утерян тысячи лет назад. Тот факт, что вы держите его в руках, подтверждает: Теневой Протокол — это не просто данные, это рабочая технология».</i>";
 
-            PDAHandler.AddEncyclopediaEntry(UnkMineral, "Tech/Shadow Protocol", "Старый Корабль", titanicDesc);
-            StoryGoalHandler.RegisterItemGoal()
+            PDAHandler.AddEncyclopediaEntry(UnkMineral, "Tech/Shadow Protocol", "Старый Корабль", UnkMineralDisc);
+            StoryGoalHandler.RegisterItemGoal(UnkMineral, Story.GoalType.Encyclopedia, Info.TechType);
         }
     }
 }

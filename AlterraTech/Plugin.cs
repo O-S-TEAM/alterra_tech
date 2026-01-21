@@ -3,6 +3,7 @@ using BepInEx.Logging;
 using alterratech.Items.Equipment;
 using alterratech.Items.Minerals;
 using alterratech.Items.TechItems;
+using alterratech.Items.modules;
 using alterratech.Structures;
 using HarmonyLib;
 using System.IO;
@@ -49,6 +50,8 @@ namespace alterratech
             UnknownMinerales.Register();
             TechKnifePrefab.Register();
             //ShadowRebreather.Register();
+            SeamothShadowModule.Register();
+            PrawnOdradekModule.Register();
             ShadowTank.Register();
             StructureLoaders.LoadStructures();
             StaticStructures.Register();

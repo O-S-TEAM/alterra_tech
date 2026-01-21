@@ -1,4 +1,5 @@
 ﻿using alterratech.Items.Equipment;
+using alterratech.Items.modules;
 using Nautilus.Assets;
 using Nautilus.Handlers;
 using Nautilus.Utility;
@@ -68,6 +69,7 @@ namespace alterratech.Structures
 
             PDAHandler.AddCustomScannerEntry(TitanicInfo.TechType, 2f, false, titanicEncy);
             PDAHandler.AddCustomScannerEntry(ServerInfo.TechType, ShadowTank.Info.TechType, true, 3, 2f, true, serverEncy);
+            PDAHandler.AddCustomScannerEntry(ServerInfo.TechType, SeamothShadowModule.Info.TechType, true, 4, 2f, true);
         }
 
         private static CustomPrefab CreateBasePrefab(PrefabInfo info, string assetPath)
