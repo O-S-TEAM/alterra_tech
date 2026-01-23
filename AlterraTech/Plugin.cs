@@ -50,6 +50,7 @@ namespace alterratech
             UnknownMinerales.Register();
             TechKnifePrefab.Register();
             //ShadowRebreather.Register();
+            EngineItem.Register();
             SeamothShadowModule.Register();
             PrawnOdradekModule.Register();
             ShadowTank.Register();
@@ -58,7 +59,6 @@ namespace alterratech
             Debug.LogError("AlterraTech: Структуры Загружены");
             DeepLeviathan.RegisterEntity();
             Debug.LogError("AlterraTech: DeepLev Загружен");
-            EngineItem.Register();
         }
     }
 }
