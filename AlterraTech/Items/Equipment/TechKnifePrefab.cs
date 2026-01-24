@@ -106,7 +106,7 @@ namespace alterratech.Items.Equipment
             PDAHandler.AddEncyclopediaEntry(
                 encyclopediaKey,
                 "Tech/Shadow Protocol",
-                "#0001 Нож Бездны",
+                "#001 Нож Бездны",
                 shadowDescription
             );
             StoryGoalHandler.RegisterItemGoal(encyclopediaKey, Story.GoalType.Encyclopedia, Info.TechType);

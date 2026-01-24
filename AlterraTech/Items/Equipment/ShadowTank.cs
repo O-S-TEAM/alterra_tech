@@ -74,7 +74,7 @@ namespace alterratech.Items.Equipment
             PDAHandler.AddEncyclopediaEntry(
                 encyclopediaKey,
                 "Tech/Shadow Protocol",
-                "#0432 Баллон",
+                "#0432",
                 shadowDescription
             );
 
