@@ -43,7 +43,7 @@ namespace alterratech.Items.modules
     public static class SeamothShadowModule
     {
         public static PrefabInfo Info { get; } = PrefabInfo
-            .WithTechType("SeamothShadowModule", "Модуль погружения: SHADOW", "Секретная разработка проекта 'Тень'. Укрепляет корпус до 1000 метров.")
+            .WithTechType("SeamothShadowModule", "Модуль погружения", "Секретная разработка проекта 'Тень'. Укрепляет корпус до 1000 метров.")
             .WithIcon(Plugin.Bundle.LoadAsset<Sprite>("Assets/Sprite/ModuleIcon.png"));
 
         public static void Register()
@@ -114,7 +114,7 @@ namespace alterratech.Items.modules
             PDAHandler.AddEncyclopediaEntry(
                 entryId,
                 "Tech/Shadow Protocol",
-                "Проект 'Погружение': Глубинная экспансия",
+                "Проект 'Погружение'",
                 shadowModuleDescription
             );
             StoryGoalHandler.RegisterItemGoal(entryId, Story.GoalType.Encyclopedia, Info.TechType);

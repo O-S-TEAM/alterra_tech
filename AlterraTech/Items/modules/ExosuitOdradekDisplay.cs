@@ -62,7 +62,7 @@ namespace alterratech.Items.modules
 
     public static class PrawnOdradekModule
     {
-        public static PrefabInfo Info { get; } = PrefabInfo.WithTechType("PrawnOdradekModule", "Одрадек (Краб)", "Сенсор O.S. TEAM");
+        public static PrefabInfo Info { get; } = PrefabInfo.WithTechType("PrawnOdradekModule", "Одрадек (Краб)", "Death Stranding");
 
         public static void Register()
         {

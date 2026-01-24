@@ -13,7 +13,7 @@ namespace alterratech.Items.Equipment
     public static class ShadowTank
     {
         public static PrefabInfo Info { get; } = PrefabInfo
-            .WithTechType("ShadowTank", "Теневой Баллон", "Максимальная эффективность.")
+            .WithTechType("ShadowTank", "Баллон #0432 ", "Максимальная эффективность.")
             .WithIcon(SpriteManager.Get(TechType.HighCapacityTank));
 
         public static void Register()
@@ -59,7 +59,7 @@ namespace alterratech.Items.Equipment
             string encyclopediaKey = "ShadowBallon_Info_Page";
 
             string shadowDescription =
-                    "<color=#555555ff>Объект: Теневой Баллон (Shadow Air Tank)</color>\n\n" +
+                    "<color=#555555ff>Объект: #0432 Баллон (Air Tank)</color>\n\n" +
                     "Сверхтехнологичное решение для длительных автономных погружений. " +
                     "Разработка основана на интеграции <b>Неизвестного Минерала</b> в структуру внутренней оболочки высокого давления.\n\n" +
                     "<b>Технические характеристики:</b>\n" +
@@ -74,7 +74,7 @@ namespace alterratech.Items.Equipment
             PDAHandler.AddEncyclopediaEntry(
                 encyclopediaKey,
                 "Tech/Shadow Protocol",
-                "Теневой Баллон",
+                "#0432 Баллон",
                 shadowDescription
             );
 

@@ -17,7 +17,7 @@ namespace alterratech.Items.Equipment
     {
         public static string modPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         public static PrefabInfo Info { get; } = PrefabInfo
-            .WithTechType("ShadowKnife", "Теневой Нож", "тайная разработка альтерры")
+            .WithTechType("ShadowKnife", "Нож Бездны", "тайная разработка альтерры")
             .WithIcon(SpriteManager.Get(TechType.HeatBlade));
 
         public static void Register()
@@ -92,7 +92,7 @@ namespace alterratech.Items.Equipment
             string encyclopediaKey = "ShadowKnife_Info_Page";
 
             string shadowDescription =
-                "<color=#555555ff>Прототип: Теневого Ножа </color>\n\n" +
+                "<color=#555555ff>Прототип: Нож Бездны </color>\n\n" +
                 "Данный образец холодного оружия использует технологию <b>«светопоглощающего резонанса»</b>. " +
                 "Лезвие ножа практически не отражает фотоны, что создает эффект «дрожащей тени» при движении.\n\n" +
                 "<b>Технические особенности:</b>\n" +
@@ -106,7 +106,7 @@ namespace alterratech.Items.Equipment
             PDAHandler.AddEncyclopediaEntry(
                 encyclopediaKey,
                 "Tech/Shadow Protocol",
-                "Теневой Нож",
+                "#0001 Нож Бездны",
                 shadowDescription
             );
             StoryGoalHandler.RegisterItemGoal(encyclopediaKey, Story.GoalType.Encyclopedia, Info.TechType);

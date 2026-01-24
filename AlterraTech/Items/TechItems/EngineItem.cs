@@ -11,7 +11,7 @@ namespace alterratech.Items.TechItems
     public static class EngineItem
     {
         public static PrefabInfo Info { get; } = PrefabInfo
-            .WithTechType("Engine", "Теневой Двигатель", "Экспериментальный прототип двигателя. Излучает едва заметное тепло.")
+            .WithTechType("Engine", "Двигатель #7600", "Экспериментальный прототип двигателя. Излучает едва заметное тепло.")
             .WithIcon(Plugin.Bundle.LoadAsset<Sprite>("Assets/Sprite/EngineSp.png"))
             .WithSizeInInventory(new Vector2int(2, 2));
 
