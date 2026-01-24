@@ -82,7 +82,7 @@ namespace alterratech.Creatures
             {
                 var attack = CreaturePrefabUtils.AddMeleeAttack<ShadowMeleeAttack>(prefab, components, mouth.gameObject, true, 50f);
                 attack.biteInterval = 2f;
-                attack.biteDamage = 100f;
+                attack.biteDamage = 1000f;
             }
 
             Animator anim = prefab.GetComponentInChildren<Animator>();
