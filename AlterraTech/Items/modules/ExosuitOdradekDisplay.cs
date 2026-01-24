@@ -68,7 +68,7 @@ namespace alterratech.Items.modules
         {
             var customPrefab = new CustomPrefab(Info);
             customPrefab.SetEquipment(EquipmentType.ExosuitModule);
-            customPrefab.SetRecipe(new RecipeData(new Ingredient(TechType.Titanium, 1)));
+            customPrefab.SetRecipe(new RecipeData(new Ingredient(TechType.Titanium, 1))).WithFabricatorType(CraftTree.Type.Workbench);
             customPrefab.SetUnlock(TechType.Knife);
             customPrefab.Register();
         }

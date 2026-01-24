@@ -77,8 +77,7 @@ namespace alterratech.Items.modules
                 new Ingredient(EngineItem.Info.TechType, 1),
                 new Ingredient(TechType.AdvancedWiringKit, 3),
                 new Ingredient(TechType.EnameledGlass, 2)
-            )).WithFabricatorType(CraftTree.Type.SeamothUpgrades);
-
+            )).WithFabricatorType(CraftTree.Type.Workbench);
             customPrefab.SetVehicleUpgradeModule()
                 .WithOnModuleAdded((Vehicle vehicle, int slotIndex) =>
                 {
@@ -93,6 +92,7 @@ namespace alterratech.Items.modules
                 })
                 .WithEnergyCost(23f);
             RegisterModuleStory();
+            customPrefab.SetUnlock(TechType.Knife);
             customPrefab.Register();
         }
 
