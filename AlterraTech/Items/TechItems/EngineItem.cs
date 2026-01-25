@@ -57,7 +57,7 @@ namespace alterratech.Items.TechItems
 
             PDAHandler.AddEncyclopediaEntry(
                 entryId,
-                "Tech/Artifacts",
+                "Tech/Shadow Protocol",
                 "Двигатель (Прототип #7600)",
                 "Данный агрегат не числится в официальном реестре Alterra. \n\n" +
                 "**Технический анализ:**\n" +
