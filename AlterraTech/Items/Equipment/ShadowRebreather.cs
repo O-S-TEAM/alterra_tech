@@ -1,4 +1,4 @@
-﻿//using experimentalmod.Items.Minerals;
+﻿//using alterratech.Items.Minerals;
 //using Nautilus.Assets;
 //using Nautilus.Assets.Gadgets;
 //using Nautilus.Assets.PrefabTemplates;
@@ -7,19 +7,33 @@
 //using Nautilus.Utility;
 //using UnityEngine;
 
-//namespace experimentalmod.Items.Equipment
+//namespace alterratech.Items.Equipment
 //{
 //    public static class ShadowRebreather
 //    {
+//        // Use a bundled sprite if available as icon, fallback to game's rebreather sprite
+//        private static Sprite GetIcon()
+//        {
+//            try
+//            {
+//                // try bundle first
+//                var s = Plugin.Bundle?.LoadAsset<Sprite>("Assets/stasisrifleupgrades.png");
+//                if (s != null) return s;
+//            }
+//            catch { }
+//            try { return ImageUtils.LoadSpriteFromFile(System.IO.Path.Combine(Plugin.ModPath, "Assets", "stasisrifleupgrades.png")); } catch { }
+//            // fallback to built-in
+//            try { return SpriteManager.Get(TechType.Rebreather); } catch { return null; }
+//        }
+
 //        public static PrefabInfo Info { get; } = PrefabInfo
 //            .WithTechType("ShadowRebreather", "Ребризер 'Тень' WIP", "Экспериментальный прототип. Стабилизирует кислород за счет психики субъекта. WIP")
-//            .WithIcon(SpriteManager.Get(TechType.Rebreather));
+//            .WithIcon(GetIcon());
 
 //        public static void Register()
 //        {
 //            var customPrefab = new CustomPrefab(Info);
 //            var clone = new CloneTemplate(Info, TechType.Rebreather);
-
 //            customPrefab.SetGameObject(clone);
 //            var recipe = new RecipeData(
 //                new Ingredient(TechType.Rebreather, 1),
@@ -33,9 +47,11 @@
 //            RegisterEncyclopedia();
 
 //            customPrefab.Register();
+
 //            var controller = new GameObject("ShadowRebreatherController");
 //            controller.AddComponent<ShadowRebreatherLogic>();
-//            Object.DontDestroyOnLoad(controller);
+//            // Ensure we call Unity's DontDestroyOnLoad
+//            UnityEngine.Object.DontDestroyOnLoad(controller);
 //        }
 
 //        private static void RegisterEncyclopedia()
@@ -57,27 +73,46 @@
 //        }
 //    }
 
-//    public class ShadowRebreatherLogic : MonoBehaviour
+//        public class ShadowRebreatherLogic : MonoBehaviour
 //    {
 //        private float nextEffectTime;
+//        private Component hungerComponent;
+//        private string hungerFieldName;
+//        private float hungerDrainMultiplier = 2.0f; // how much faster hunger drains when equipped
 
 //        void Update()
 //        {
 //            if (Player.main == null || Inventory.main == null || !Player.main.IsAlive()) return;
 
 //            // Проверяем надет ли предмет
-//            bool isEquipped = Inventory.main.equipment.GetCount(ShadowRebreather.Info.TechType) > 0;
+//            bool isEquipped = false;
+//            try
+//            {
+//                isEquipped = Inventory.main.equipment.GetCount(ShadowRebreather.Info.TechType) > 0;
+//            }
+//            catch (System.Exception e)
+//            {
+//                // fallback: check inventory container
+//                try
+//                {
+//                    isEquipped = Inventory.main.container.GetCount(ShadowRebreather.Info.TechType) > 0;
+//                }
+//                catch { }
+//                Plugin.Logger.LogWarning($"ShadowRebreather: equipment check threw: {e.Message}");
+//            }
 //            if (!isEquipped) return;
 
 //            float depth = Player.main.GetDepth();
 
 //            // --- ЛОГИКА КИСЛОРОДА ---
 //            // Если глубина больше 100м восстанавливаем кислород
-//            if (Player.main.IsUnderwater() && depth > 100f)
-//            {
-
-//                Player.main.oxygenMgr.AddOxygen(Time.deltaTime * 1.0f); 
-//            }
+//                if (Player.main.IsUnderwater() && depth > 100f)
+//                {
+//                    // restore a small amount of oxygen per second
+//                    Player.main.oxygenMgr.AddOxygen(Time.deltaTime * 1.0f);
+//                }
+//                // accelerate hunger if possible
+//                TryAccelerateHunger(Time.deltaTime);
 //            if (Time.time > nextEffectTime)
 //            {
 //                float depthFactor = Mathf.Clamp01(depth / 600f);
@@ -90,7 +125,7 @@
 
 //        private void TriggerEffect(float depth)
 //        {
-//            int rnd = Random.Range(0, 100);
+//            int rnd = UnityEngine.Random.Range(0, 100);
 
 //            if (rnd < 40)
 //            {
@@ -105,6 +140,42 @@
 //            {
 //                ErrorMessage.AddMessage("СИСТЕМА: Обнаружены фантомные сигналы биомассы.");
 //            }
+//        }
+
+//        private void TryAccelerateHunger(float delta)
+//        {
+//            // Try to find a metabolism/hunger component and increase its drain rate
+//            try
+//            {
+//                var player = Player.main;
+//                if (player == null) return;
+
+//                var metab = player.GetComponent("PlayerMetabolism");
+//                if (metab != null)
+//                {
+//                    // common field names: 'calories', 'hungerRate' - reflectively try to adjust
+//                    var t = metab.GetType();
+//                    var field = t.GetField("calories") ?? t.GetField("calorieAmount");
+//                    if (field != null)
+//                    {
+//                        float val = (float)field.GetValue(metab);
+//                        // drain additional calories
+//                        val -= delta * hungerDrainMultiplier;
+//                        field.SetValue(metab, val);
+//                        return;
+//                    }
+
+//                    var prop = t.GetProperty("Calories");
+//                    if (prop != null)
+//                    {
+//                        float val = (float)prop.GetValue(metab);
+//                        val -= delta * hungerDrainMultiplier;
+//                        prop.SetValue(metab, val);
+//                        return;
+//                    }
+//                }
+//            }
+//            catch { }
 //        }
 //    }
 //}

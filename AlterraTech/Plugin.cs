@@ -56,7 +56,11 @@ namespace alterratech
             ShadowTank.Register();
             StructureLoaders.LoadStructures();
             StaticStructures.Register();
-            ShadowImpulseRifle.Register();
+
+            //PhaseIteratorItem.Register(); 
+            //ReactorShroudItem.Register();
+            //ShadowReactor.Register();
+
             Debug.LogError("AlterraTech: Структуры Загружены");
             DeepLeviathan.RegisterEntity();
             Debug.LogError("AlterraTech: DeepLev Загружен");
