@@ -52,7 +52,7 @@ namespace alterratech.Items.TechItems
 
         private static void RegisterEncyclopedia()
         {
-            // Используем TechType как ID для энциклопедии, чтобы StoryGoalHandler его подцепил
+
             string entryId = "Engine";
 
             PDAHandler.AddEncyclopediaEntry(
@@ -71,7 +71,6 @@ namespace alterratech.Items.TechItems
                 "**ВНИМАНИЕ:** Использование данного двигателя в гражданских постройках может привести к нарушению гарантии и дестабилизации реальности."
             );
 
-            // Твоя верная строка
             StoryGoalHandler.RegisterItemGoal(entryId, Story.GoalType.Encyclopedia, Info.TechType);
         }
     }

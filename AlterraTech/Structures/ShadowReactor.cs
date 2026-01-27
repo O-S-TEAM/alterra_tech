@@ -34,7 +34,6 @@ namespace alterratech.Structures
                 MaterialUtils.ApplySNShaders(instance);
 
                 var constructable = instance.EnsureComponent<Constructable>();
-                // Убедись, что в Unity внутри префаба есть объект с именем "model"
                 constructable.model = instance.transform.Find("model")?.gameObject ?? instance;
                 constructable.allowedInBase = true;
                 constructable.allowedInSub = false;
@@ -96,13 +95,11 @@ namespace alterratech.Structures
 
         private IEnumerator FinalSequence()
         {
-            // 1. Сразу при постройке
+
             ErrorMessage.AddMessage("<color=#ff0000ff>КРИТИЧЕСКАЯ ОШИБКА:</color> Обнаружено внешнее сканирование системы!");
             FMODUnity.RuntimeManager.PlayOneShot("event:/tools/scanner/scan_complete");
 
             yield return new WaitForSeconds(5f);
-
-            // 2. Голос КПК
             string message = "<color=#ff0000ff>КПК:</color> Обнаружено судно Альтерры класса 'Vanguard'. Вектор: Планета 4546B. " +
                              "Протокол Тень скомпрометирован. У вас осталось 20 секунд до контакта.";
             ErrorMessage.AddMessage(message);
@@ -113,8 +110,6 @@ namespace alterratech.Structures
 
             yield return new WaitForSeconds(10f);
 
-            // 3. ЗАПУСК ТИТРОВ И КОНЦА ИГРЫ
-            // Это стандартный метод Subnautica для финала
             SceneManager.LoadScene("EndCredits", LoadSceneMode.Single);
         }
     }
