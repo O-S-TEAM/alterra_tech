@@ -57,9 +57,9 @@ namespace alterratech
             StructureLoaders.LoadStructures();
             StaticStructures.Register();
 
-            //PhaseIteratorItem.Register(); 
-            //ReactorShroudItem.Register();
-            //ShadowReactor.Register();
+            PhaseIteratorItem.Register();
+            ReactorShroudItem.Register();
+            ShadowReactor.Register();
 
             Debug.LogError("AlterraTech: Структуры Загружены");
             DeepLeviathan.RegisterEntity();
