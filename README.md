@@ -1,7 +1,7 @@
 # Alterra Tech 🌌 | [O.S. TEAM]
 
 ![Status](https://img.shields.io/badge/Status-In_Development-orange)
-![Version](https://img.shields.io/badge/Version-0.2.0--alpha.1-blueviolet)
+![Version](https://img.shields.io/badge/Version-0.2.1--alpha-blueviolet)
 ![Game](https://img.shields.io/badge/Game-Subnautica-cyan)
 
 **Alterra Tech** — это амбициозная сюжетная модификация для Subnautica, раскрывающая тайны запретных технологий Альтерры.
