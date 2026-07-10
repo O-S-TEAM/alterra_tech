@@ -1,6 +1,6 @@
 # Alterra Tech 🌌 | [O.S. TEAM]
 
-![Status](https://img.shields.io/badge/Status-In_Development-orange)
+![Status](https://img.shields.io/badge/Status-CANCELLED-red)
 ![Version](https://img.shields.io/badge/Version-0.2.1--alpha-blueviolet)
 ![Game](https://img.shields.io/badge/Game-Subnautica-cyan)
 
